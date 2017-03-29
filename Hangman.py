@@ -7,21 +7,21 @@ with open("words.txt","r") as f:
     for line in f:
         line = line[0:len(line)-1].lower()
         if line.isalpha():
-            wordlist.append(line[0:len(line)-1])
+            wordlist.append(line)
 with open("words2.txt","r") as f:
     for line in f:
         line = line[0:len(line) - 1].lower()
         if line.isalpha():
-            wordlist.append(line[0:len(line) - 1])
+            wordlist.append(line)
 with open("words3.txt","r") as f:
     for line in f:
         line = line[0:len(line) - 1].lower()
         if line.isalpha():
-            wordlist.append(line[0:len(line) - 1])
+            wordlist.append(line)
 
 
 s = str(raw_input())
-unk = list(str(raw_input()))
+unk = ['.' for char in s]
 
 def makeGuess(letter):
     for i in xrange(0,len(s)):
@@ -42,6 +42,12 @@ def findNext():
     newunk = ''.join(unk).split(" ")
     freqlist=[0 for i in xrange(26)]
     for guess in newunk:
+        flag1 = False
+        for char in guess:
+            if char=='.':
+                flag1=True
+        if not flag1:
+            continue
         for word in wordlist:
             if len(word) != len(guess):
                 continue
@@ -55,7 +61,7 @@ def findNext():
                 continue
             for char in word:
                 freqlist[ord(char)-97]+=1
-    maxvalue = 0
+    maxvalue = -1
     maxind = -1
     for i in xrange(26):
         if guessed[i]:
