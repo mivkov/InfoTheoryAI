@@ -36,7 +36,7 @@ def done():
     return True
 
 makeGuess(" ")
-freq = ['e','t','a','o','i','n','s','h','r','d','l','c','u','m','w','f','g','y','p','b','v','k','j','x','q','z']
+freq = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 guessed = [False for i in xrange(26)]
 def findNext():
     newunk = ''.join(unk).split(" ")
